@@ -22,3 +22,24 @@
 .cursor{
     -fx-cursor: hand;
 }
+
+.gradient {
+    -fx-background-color: linear-gradient(to top, #222222, transparent);
+}
+
+.shadow {
+    -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.2), 10, 0, 0, 10)
+}
+
+.transparent{
+    -fx-background-color: rgba(0, 0, 0, 0);
+}
+
+.input {
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #898989;
+}
+
+.radius {
+    -fx-background-radius: 30;
+}

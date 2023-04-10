@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -18,7 +19,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="833.0" prefWidth="1300.0" styleClass="dark-background" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.gui.controller.MainController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="dark-background" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.gui.controller.AppController">
    <top>
       <HBox prefHeight="125.0" prefWidth="200.0" spacing="20.0" styleClass="border-bottom" stylesheets="@../styles/style.css" BorderPane.alignment="CENTER">
          <children>
@@ -69,10 +70,10 @@
                <children>
                   <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#switchToFourthTab" pickOnBounds="true" preserveRatio="true" styleClass="cursor">
                      <image>
-                        <Image url="@../img/icons8-user-groups-96.png" />
+                        <Image url="@../img/icons8-favorites-96.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="tabName4" alignment="CENTER" onMouseClicked="#switchToFourthTab" prefHeight="21.0" prefWidth="80.0" styleClass="cursor" text="Caravans" textAlignment="CENTER" textFill="#676767">
+                  <Label fx:id="tabName4" alignment="CENTER" onMouseClicked="#switchToFourthTab" prefHeight="21.0" prefWidth="80.0" styleClass="cursor" text="Saved" textAlignment="CENTER" textFill="#676767">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -114,59 +115,58 @@
       <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
           <Tab text="My Journeys">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <content>
+                  <VBox prefHeight="702.0" prefWidth="1445.0" styleClass="dark-background" stylesheets="@../styles/style.css">
                      <children>
-                        <VBox prefHeight="702.0" prefWidth="1300.0">
+                        <HBox alignment="CENTER" prefHeight="84.0" prefWidth="1280.0">
                            <children>
-                              <HBox alignment="CENTER" prefHeight="84.0" prefWidth="1300.0">
+                              <VBox alignment="CENTER" prefHeight="77.0" prefWidth="137.0">
                                  <children>
-                                    <VBox alignment="CENTER" prefHeight="77.0" prefWidth="137.0">
-                                       <children>
-                                          <Label prefHeight="7.0" prefWidth="138.0" text="My Journeys" textFill="#676767">
-                                             <font>
-                                                <Font size="24.0" />
-                                             </font>
-                                          </Label>
-                                          <Label prefHeight="14.0" prefWidth="138.0" text="25 results" textFill="#676767">
-                                             <font>
-                                                <Font size="16.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </VBox>
-                                    <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
-                                       <opaqueInsets>
-                                          <Insets />
-                                       </opaqueInsets>
-                                    </Pane>
-                                    <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="97.0" styleClass="bottom" stylesheets="@../styles/style.css" text="Refresh">
+                                    <Label prefHeight="7.0" prefWidth="138.0" text="My Journeys" textFill="#676767">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="tripCount" prefHeight="14.0" prefWidth="138.0" text="25 results" textFill="#676767">
                                        <font>
                                           <Font size="16.0" />
                                        </font>
-                                    </Button>
+                                    </Label>
                                  </children>
+                              </VBox>
+                              <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
-                                 <padding>
-                                    <Insets left="30.0" right="30.0" />
-                                 </padding>
-                              </HBox>
-                              <ScrollPane prefHeight="200.0" prefWidth="200.0" styleClass="dark-background" stylesheets="@../styles/style.css" VBox.vgrow="ALWAYS">
-                                 <content>
-                                    <GridPane fx:id="myJourneysGrid" prefHeight="0.0" prefWidth="0.0" styleClass="dark-background" stylesheets="@../styles/style.css">
-                                      <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
-                                    </GridPane>
-                                 </content>
-                              </ScrollPane>
+                              </Pane>
+                              <Button fx:id="refreshMyTripsButton" alignment="CENTER" mnemonicParsing="false" onAction="#refreshMyTrips" prefHeight="30.0" prefWidth="97.0" styleClass="bottom" stylesheets="@../styles/style.css" text="Refresh">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
                            </children>
-                        </VBox>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
+                        </HBox>
+                        <ScrollPane prefHeight="297.0" prefWidth="1280.0" styleClass="dark-background" stylesheets="@../styles/style.css" VBox.vgrow="ALWAYS">
+                           <content>
+                              <GridPane fx:id="myJourneysGrid" prefHeight="582.0" prefWidth="1278.0" styleClass="dark-background" stylesheets="@../styles/style.css">
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </content>
+                        </ScrollPane>
                      </children>
-                  </AnchorPane>
-            </content>
+                  </VBox>
+               </content>
           </Tab>
           <Tab text="Explore">
             <content>

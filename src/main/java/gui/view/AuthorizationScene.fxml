@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.gui.controller.AuthorizationController">
+   <left>
+      <VBox alignment="CENTER" prefHeight="800.0" prefWidth="804.0" spacing="30.0" styleClass="dark-background" stylesheets="@../styles/style.css" BorderPane.alignment="CENTER">
+         <children>
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="116.0" prefWidth="412.0">
+               <children>
+                  <Label prefHeight="64.0" prefWidth="292.0" text="Tripsters " textFill="WHITE">
+                     <font>
+                        <Font name="Bell MT Bold" size="48.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="40.0" prefWidth="336.0" text="Welcome back)" textFill="#676767">
+                     <font>
+                        <Font name="Bell MT" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="253.0" prefWidth="412.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="412.0" styleClass="input" stylesheets="@../styles/style.css">
+                     <children>
+                        <TextField fx:id="login" prefHeight="55.0" prefWidth="412.0" promptText="Login" style="-fx-prompt-text-fill: #676767; -fx-text-fill: #676767;" styleClass="transparent" stylesheets="@../styles/style.css">
+                           <font>
+                              <Font name="Bell MT" size="30.0" />
+                           </font>
+                           <padding>
+                              <Insets left="1.0" />
+                           </padding>
+                        </TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="200.0" styleClass="input" stylesheets="@../styles/style.css">
+                     <children>
+                        <PasswordField fx:id="password" prefHeight="57.0" prefWidth="412.0" promptText="Password" style="-fx-prompt-text-fill: #676767; -fx-text-fill: #676767;" styleClass="transparent" stylesheets="@../styles/style.css">
+                           <font>
+                              <Font name="Bell MT" size="30.0" />
+                           </font>
+                           <padding>
+                              <Insets left="1.0" />
+                           </padding></PasswordField>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Button mnemonicParsing="false" onAction="#loginButton" prefHeight="36.0" prefWidth="216.0" style="-fx-background-color: #676767;" styleClass="radius" stylesheets="@../styles/style.css" text="Login" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Bell MT" size="20.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets left="30.0" right="30.0" />
+         </padding>
+      </VBox>
+   </left>
+   <center>
+      <VBox alignment="CENTER" prefHeight="800.0" prefWidth="476.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="98.0" prefWidth="377.0">
+               <children>
+                  <Label prefHeight="43.0" prefWidth="292.0" text="Register">
+                     <font>
+                        <Font name="Bell MT Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="14.0" prefWidth="336.0" text="Let's get started" textFill="#676767">
+                     <font>
+                        <Font name="Bell MT" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets left="50.0" right="50.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="324.0" prefWidth="366.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="200.0" styleClass="input" stylesheets="@../styles/style.css">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                     <children>
+                        <TextField fx:id="name" prefHeight="55.0" prefWidth="412.0" promptText="Name" style="-fx-prompt-text-fill: #676767; -fx-text-fill: #676767;" styleClass="transparent" stylesheets="@../styles/style.css">
+                           <font>
+                              <Font name="Bell MT" size="30.0" />
+                           </font>
+                           <padding>
+                              <Insets left="1.0" />
+                           </padding>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="200.0" styleClass="input" stylesheets="@../styles/style.css">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                     <children>
+                        <TextField fx:id="newLogin" prefHeight="55.0" prefWidth="412.0" promptText="Login" style="-fx-prompt-text-fill: #676767; -fx-text-fill: #676767;" styleClass="transparent" stylesheets="@../styles/style.css">
+                           <font>
+                              <Font name="Bell MT" size="30.0" />
+                           </font>
+                           <padding>
+                              <Insets left="1.0" />
+                           </padding>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="200.0" styleClass="input" stylesheets="@../styles/style.css">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                     <children>
+                        <PasswordField fx:id="newPassword" prefHeight="57.0" prefWidth="412.0" promptText="Password" style="-fx-prompt-text-fill: #676767; -fx-text-fill: #676767;" styleClass="transparent" stylesheets="@../styles/style.css">
+                           <font>
+                              <Font name="Bell MT" size="30.0" />
+                           </font>
+                           <padding>
+                              <Insets left="1.0" />
+                           </padding>
+                        </PasswordField>
+                     </children>
+                  </HBox>
+                  <Button mnemonicParsing="false" onAction="#registerButton" prefHeight="36.0" prefWidth="216.0" style="-fx-background-color: black;" styleClass="radius" stylesheets="@../styles/style.css" text="Register" textFill="WHITE">
+                     <font>
+                        <Font name="Bell MT" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

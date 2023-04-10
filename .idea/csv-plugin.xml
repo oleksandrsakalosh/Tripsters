@@ -3,6 +3,13 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="\src\main\java\gui\controller\AuthorizationController.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\src\main\java\gui\controller\Controller.java">
           <value>
             <Attribute>
@@ -17,7 +24,21 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\src\main\java\system\DBConection.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\src\main\java\system\Main.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\main\java\system\TripstersApp.java">
           <value>
             <Attribute>
               <option name="separator" value=";" />
