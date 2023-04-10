@@ -17,3 +17,4 @@
 3. Change configuration in the DBConnection class.
 
 ## Authorization data
+(https://github.com/oleksandrsakalosh/Tripsters/blob/master/setup/auth_data.png)
