@@ -1,33 +1,23 @@
 package main.java.gui.controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import main.java.system.TripstersApp;
 import main.java.system.travel.Trip;
 
-public class TripController {
-
-    @FXML
-    private ImageView img;
+public class TripController extends MainController{
 
     @FXML
     private Label name;
 
-    @FXML
-    private Label duration;
-
-    @FXML
-    private Label price;
+    public TripController(TripstersApp sys, Stage primaryStage, Scene preScene) {
+        super(sys, primaryStage, preScene);
+    }
 
     public void setData(Trip trip){
-        Image image;
-        if(trip.getImgScr() != null) {
-            image = new Image(getClass().getResourceAsStream("../img/" + trip.getImgScr()));
-            img.setImage(image);
-        }
         name.setText(trip.getName());
-        duration.setText(Integer.toString(trip.getDaysDur()) + " Days");
-        price.setText(Float.toString(trip.getPrice()) + "€");
+
     }
 }

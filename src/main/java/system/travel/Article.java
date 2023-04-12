@@ -1,6 +1,6 @@
 package main.java.system.travel;
 
-import main.java.system.services.Review;
+import main.java.system.model.Review;
 
 public class Article {
     private int id;

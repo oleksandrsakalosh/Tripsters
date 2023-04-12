@@ -1,4 +1,4 @@
-package main.java.system.services;
+package main.java.system.model;
 
 public class Flight extends Airline{
     private int id;

@@ -1,6 +1,7 @@
 package main.java.gui.controller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,30 +13,39 @@ import java.io.IOException;
 public class MainController {
     protected TripstersApp sys;
     protected Stage primaryStage;
+    protected Scene preScene;
 
-    public MainController(TripstersApp sys, Stage primaryStage) {
+    MainController(TripstersApp sys, Stage primaryStage, Scene preScene) {
         this.sys = sys;
         this.primaryStage = primaryStage;
+        this.preScene = preScene;
     }
 
-    public void setSys(TripstersApp sys, Stage primaryStage) {
-        this.sys = sys;
-        this.primaryStage = primaryStage;
-    }
-
-    public void switchScene(String fileName, ActionEvent event) {
+    public void switchScene(String fileName, Scene preScene, ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fileName));
-        loader.setControllerFactory(controllerClass -> new AppController(this.sys, this.primaryStage));
+        switch (fileName){
+            case "../view/AppScene.fxml":
+                loader.setControllerFactory(controllerClass -> new AppController(this.sys, this.primaryStage, preScene));
+                break;
+            case "../view/AuthorizationScene.fxml":
+                loader.setControllerFactory(controllerClass -> new AuthorizationController(this.sys, this.primaryStage));
+                break;
+        }
+
         Parent root = null;
         try {
             root = loader.load();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        MainController controller = loader.getController();
-        controller.setSys(this.sys, this.primaryStage);
 
         primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
+
+    @FXML
+    void goBack(ActionEvent event)  {
+        primaryStage.setScene(preScene);
         primaryStage.show();
     }
 }

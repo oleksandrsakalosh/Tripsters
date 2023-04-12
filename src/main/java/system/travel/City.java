@@ -1,8 +1,8 @@
 package main.java.system.travel;
 
-import main.java.system.services.Flight;
-import main.java.system.services.Review;
-import main.java.system.services.Room;
+import main.java.system.model.Flight;
+import main.java.system.model.Review;
+import main.java.system.model.Room;
 
 import java.sql.Date;
 import java.util.ArrayList;

@@ -30,13 +30,13 @@ public class AuthorizationController extends MainController {
     private PasswordField newPassword;
 
     public AuthorizationController(TripstersApp sys, Stage primaryStage) {
-        super(sys, primaryStage);
+        super(sys, primaryStage, null);
     }
 
     @FXML
     void loginButton(ActionEvent event) throws IOException, SQLException {
         sys.logUser(login.getText(), password.getText());
-        switchScene("../view/AppScene.fxml", event);
+        switchScene("../view/AppScene.fxml", login.getScene(), event);
     }
 
     @FXML

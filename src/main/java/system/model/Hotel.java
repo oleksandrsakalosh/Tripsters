@@ -1,19 +1,17 @@
-package main.java.system.services;
+package main.java.system.model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Hotel {
     private int id;
     private String name;
-    private ArrayList<Review> reviews;
+    private List<Review> reviews;
 
     public int getHotelId() {
         return id;
     }
 
-    public void setHotelId(int hotelId) {
-        this.id = hotelId;
-    }
+    public void setHotelId(int hotelId) { this.id = hotelId; }
 
     public String getHotelName() {
         return name;
@@ -23,11 +21,11 @@ public class Hotel {
         this.name = name;
     }
 
-    public ArrayList<Review> getHotelReviews() {
+    public List<Review> getHotelReviews() {
         return reviews;
     }
 
-    public void setHotelReviews(ArrayList<Review> reviews) {
+    public void setHotelReviews(List<Review> reviews) {
         this.reviews = reviews;
     }
 }

@@ -1,11 +1,11 @@
 package main.java.gui.controller;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
@@ -50,8 +50,8 @@ public class AppController extends MainController implements Initializable {
     @FXML
     private GridPane myJourneysGrid;
 
-    public AppController(TripstersApp sys, Stage primaryStage) {
-        super(sys, primaryStage);
+    public AppController(TripstersApp sys, Stage primaryStage, Scene preScene) {
+        super(sys, primaryStage, preScene);
     }
 
     @FXML
@@ -152,99 +152,21 @@ public class AppController extends MainController implements Initializable {
         try {
             for(Trip trip : trips){
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("../view/Trip.fxml"));
+                fxmlLoader.setLocation(getClass().getResource("../view/TripBox.fxml"));
                 Pane pane = fxmlLoader.load();
-                TripController tripController = fxmlLoader.getController();
-                tripController.setData(trip);
+                TripBoxController tripBoxController = fxmlLoader.getController();
+                tripBoxController.setData(trip, sys, primaryStage, preScene);
 
                 if(column == 3){
                     column = 0;
                     ++row;
                 }
+
                 myJourneysGrid.add(pane, column++, row);
                 GridPane.setMargin(pane, new Insets(20));
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private List<Trip> getMyTrips() throws SQLException {
-        List<Trip> list = new ArrayList<>();
-
-        List<Integer> myCaravans = sys.getLoggedUser().getCaravanId();
-
-        for(int caravanId : myCaravans){
-            String query = "SELECT * FROM trip WHERE caravan_id = " + caravanId;
-            Statement st = sys.getDB().getConnection().createStatement();
-            ResultSet res = st.executeQuery(query);
-            res.next();
-        }
-
-        Trip trip = new Trip();
-        trip.setName("Region of Tuscany");
-        trip.setImgScr("../img/Venice.jpg");
-        trip.setDaysDur(6);
-        trip.setPrice(265);
-
-        list.add(trip);
-
-        trip = new Trip();
-        trip.setName("Paris for us");
-        trip.setImgScr("../img/Venice.jpg");
-        trip.setDaysDur(6);
-        trip.setPrice(265);
-
-        list.add(trip);
-
-        trip = new Trip();
-        trip.setName("Eye of Scandinavia");
-        trip.setImgScr("../img/Venice.jpg");
-        trip.setDaysDur(6);
-        trip.setPrice(265);
-
-        list.add(trip);
-
-        trip = new Trip();
-        trip.setName("Eye of Scandinavia");
-        trip.setImgScr("../img/Venice.jpg");
-        trip.setDaysDur(6);
-        trip.setPrice(265);
-
-        list.add(trip);
-
-        trip = new Trip();
-        trip.setName("Eye of Scandinavia");
-        trip.setImgScr("../img/Venice.jpg");
-        trip.setDaysDur(6);
-        trip.setPrice(265);
-
-        list.add(trip);
-
-        trip = new Trip();
-        trip.setName("Eye of Scandinavia");
-        trip.setImgScr("../img/Venice.jpg");
-        trip.setDaysDur(6);
-        trip.setPrice(265);
-
-        list.add(trip);
-
-        trip = new Trip();
-        trip.setName("Eye of Scandinavia");
-        trip.setImgScr("../img/Venice.jpg");
-        trip.setDaysDur(6);
-        trip.setPrice(265);
-
-        list.add(trip);
-
-        trip = new Trip();
-        trip.setName("Eye of Scandinavia");
-        trip.setImgScr("../img/Venice.jpg");
-        trip.setDaysDur(6);
-        trip.setPrice(265);
-
-        list.add(trip);
-
-        return list;
     }
 }
