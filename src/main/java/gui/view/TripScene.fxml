@@ -6,10 +6,11 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -43,12 +44,12 @@
                </HBox.margin>
             </Label>
             <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-            <Label alignment="CENTER" prefHeight="27.0" prefWidth="124.0" text="800$" textFill="WHITE">
+            <Label fx:id="price" alignment="CENTER" prefHeight="27.0" prefWidth="124.0" text="800$" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="21.0" prefWidth="241.0" text="13 Apr - 19 Apr" textFill="WHITE">
+            <Label fx:id="duration" alignment="CENTER" prefHeight="30.0" prefWidth="181.0" text="10 Days" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -57,13 +58,42 @@
       </HBox>
    </top>
    <left>
-      <VBox prefHeight="700.0" prefWidth="614.0" BorderPane.alignment="CENTER" />
+      <VBox alignment="CENTER" prefHeight="700.0" prefWidth="519.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="tripImg" fitHeight="407.0" fitWidth="448.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/no-image.jpg" />
+               </image>
+            </ImageView>
+            <Pane prefHeight="101.0" prefWidth="488.0" />
+            <Label text="Tripsters" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <ScrollPane hbarPolicy="NEVER" prefHeight="192.0" prefWidth="479.0" styleClass="border-top" stylesheets="@../styles/style.css" vbarPolicy="NEVER">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" top="10.0" />
+               </VBox.margin>
+               <content>
+                  <GridPane fx:id="tripstersGrid" prefHeight="0.0" prefWidth="0.0">
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         </children></VBox>
    </left>
    <center>
-      <ScrollPane prefHeight="700.0" prefWidth="958.0" BorderPane.alignment="CENTER">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-        </content>
+      <ScrollPane hbarPolicy="NEVER" prefHeight="700.0" prefWidth="773.0" vbarPolicy="NEVER" BorderPane.alignment="CENTER">
+         <content>
+            <GridPane fx:id="citiesGrid" prefHeight="0.0" prefWidth="0.0">
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+         </content>
       </ScrollPane>
    </center>
 </BorderPane>

@@ -1,10 +1,6 @@
 package main.java.gui.controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -31,40 +27,24 @@ public class TripBoxController{
 
     protected TripstersApp sys;
     protected Stage primaryStage;
-    protected Scene preScene;
 
     private Trip trip;
 
-    @FXML
-    void openTrip(MouseEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/TripScene.fxml"));
-        loader.setControllerFactory(controllerClass -> new TripController(this.sys, this.primaryStage, preScene));
-
-        Parent root = null;
-        try {
-            root = loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        TripController controller = loader.getController();
-        controller.setData(trip);
-
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+    public Trip getTrip() {
+        return trip;
     }
 
-    public void setData(Trip trip, TripstersApp sys, Stage primaryStage, Scene preScene){
+    public void setData(Trip trip, TripstersApp sys, Stage primaryStage){
         Image image;
         if(trip.getImgScr() != null) {
             image = new Image(getClass().getResourceAsStream("../img/" + trip.getImgScr()));
             img.setImage(image);
         }
         name.setText(trip.getName());
-        duration.setText(Integer.toString(trip.getDaysDur()) + " Days");
-        price.setText(Float.toString(trip.getPrice()) + "€");
+        duration.setText(trip.getDaysDur() + " Days");
+        price.setText(trip.getPrice() + "€");
         this.trip = trip;
         this.sys = sys;
         this.primaryStage = primaryStage;
-        this.preScene = preScene;
     }
 }

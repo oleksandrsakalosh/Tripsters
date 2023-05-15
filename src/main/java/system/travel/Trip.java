@@ -1,15 +1,17 @@
 package main.java.system.travel;
 
-import main.java.system.users.Caravan;
+import main.java.system.user.Caravan;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 public class Trip {
     private int id;
     private String name;
     private String imgScr;
-    private float price;
     private int daysDur;
+    private Date startDate;
+    private Date endDate;
     private Caravan travelers;
     private ArrayList<City> road;
 
@@ -45,15 +47,6 @@ public class Trip {
         this.road = road;
     }
 
-
-    public float getPrice() {
-        return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
     public String getImgScr() {
         return imgScr;
     }
@@ -70,10 +63,35 @@ public class Trip {
         this.daysDur = daysDur;
     }
 
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
     public void addCity(City city){
         if(road == null)
             road = new ArrayList<City>(){{add(city);}};
         else
             road.add(city);
+    }
+
+    public float getPrice(){
+        float price = 0;
+        if(road != null) {
+            for (City city : road)
+                price += city.getBudget();
+        }
+        return price;
     }
 }

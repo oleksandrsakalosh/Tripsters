@@ -1,11 +1,16 @@
-package main.java.system.users;
+package main.java.system.user;
 
+import main.java.system.DBConnection;
+import main.java.system.exception.UserNotFound;
 import main.java.system.travel.Trip;
 
 import java.awt.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
-public class User implements Person{
+public class User{
     private int id;
     private String name;
     private String login;
@@ -60,5 +65,27 @@ public class User implements Person{
 
     public void setMyTrips(ArrayList<Trip> myTrips) {
         this.myTrips = myTrips;
+    }
+
+    public void newUserInCaravan(String login, DBConnection DB) throws SQLException, UserNotFound {
+        String query = "SELECT count(1) FROM tripster WHERE login = '" + login + "'";
+
+        Statement st = DB.getNewStatement();
+        ResultSet res = st.executeQuery(query);
+        res.next();
+
+        if(res.getInt(1) == 1){
+            query = "SELECT * FROM tripster WHERE login = '" + login + "'";
+
+            st = DB.getNewStatement();
+            res = st.executeQuery(query);
+            res.next();
+
+            setId(res.getInt(1));
+            setName(res.getString(2));
+            setLogin(login);
+        }
+        else
+            throw new UserNotFound();
     }
 }

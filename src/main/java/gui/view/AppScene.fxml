@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -7,6 +8,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -155,7 +157,7 @@
                               <Insets left="30.0" right="30.0" />
                            </padding>
                         </HBox>
-                        <ScrollPane prefHeight="297.0" prefWidth="1280.0" stylesheets="@../styles/style.css" VBox.vgrow="ALWAYS">
+                        <ScrollPane hbarPolicy="NEVER" prefHeight="297.0" prefWidth="1280.0" stylesheets="@../styles/style.css" vbarPolicy="NEVER" VBox.vgrow="ALWAYS">
                            <content>
                               <GridPane fx:id="myJourneysGrid" prefHeight="0.0" prefWidth="0.0" styleClass="dark-background" stylesheets="@../styles/style.css">
                                  <rowConstraints>
@@ -170,53 +172,213 @@
           </Tab>
           <Tab text="Explore">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Label layoutX="196.0" layoutY="133.0" prefHeight="50.0" prefWidth="116.0" text="2" textFill="WHITE">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                     </children></AnchorPane>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>
           </Tab>
             <Tab text="Start New">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <content>
+                  <HBox prefHeight="624.0" prefWidth="1280.0">
                      <children>
-                        <Label prefHeight="50.0" prefWidth="116.0" text="3" textFill="WHITE">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="640.0">
+                           <children>
+                              <ImageView fx:id="tripImg" fitHeight="202.0" fitWidth="381.0" onMouseClicked="#addImg" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/no-image.jpg" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                              <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="183.0" prefWidth="412.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="412.0" styleClass="input" stylesheets="@../styles/style.css">
+                                       <children>
+                                          <TextField fx:id="tripName" prefHeight="55.0" prefWidth="412.0" promptText="Name" style="-fx-prompt-text-fill: #676767; -fx-text-fill: #676767;" styleClass="transparent" stylesheets="@../styles/style.css">
+                                             <font>
+                                                <Font name="Bell MT" size="30.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets left="1.0" />
+                                             </padding>
+                                          </TextField>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="347.0" stylesheets="@../styles/style.css">
+                                       <children>
+                                          <TextField fx:id="newTravelerLogin" prefHeight="55.0" prefWidth="333.0" promptText="Add traveler by login" style="-fx-prompt-text-fill: #676767; -fx-text-fill: #676767;" stylesheets="@../styles/style.css">
+                                             <font>
+                                                <Font name="Bell MT" size="30.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets left="1.0" />
+                                             </padding>
+                                             <styleClass>
+                                                <String fx:value="transparent" />
+                                                <String fx:value="border-bottom" />
+                                             </styleClass>
+                                          </TextField>
+                                          <Pane prefHeight="55.0" prefWidth="81.0" />
+                                          <Button mnemonicParsing="false" onAction="#addNewTripster" prefHeight="39.0" prefWidth="161.0" style="-fx-background-color: #676767;" styleClass="radius" stylesheets="@../styles/style.css" text="Add" textFill="WHITE">
+                                             <font>
+                                                <Font name="Bell MT" size="20.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </VBox>
+                              <ScrollPane hbarPolicy="NEVER" prefHeight="149.0" prefWidth="374.0" styleClass="border-top" stylesheets="@../styles/style.css" vbarPolicy="NEVER">
+                                 <content>
+                                    <GridPane fx:id="tripstersGrid" prefHeight="0.0" prefWidth="0.0">
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </content>
+                                 <VBox.margin>
+                                    <Insets left="80.0" right="80.0" top="30.0" />
+                                 </VBox.margin>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="668.0" prefWidth="853.0">
+                           <children>
+                              <ScrollPane hbarPolicy="NEVER" prefHeight="258.0" prefWidth="640.0" vbarPolicy="NEVER">
+                                 <content>
+                                    <GridPane fx:id="citiesGrid" prefHeight="0.0" prefWidth="0.0">
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </content>
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                              </ScrollPane>
+                              <Label text="Add new destination" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="23.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox alignment="CENTER" prefHeight="78.0" prefWidth="640.0">
+                                 <children>
+                                    <TextField fx:id="newCity" prefHeight="55.0" prefWidth="200.0" promptText="City" style="-fx-prompt-text-fill: #676767; -fx-text-fill: #676767;" stylesheets="@../styles/style.css">
+                                       <font>
+                                          <Font name="Bell MT" size="30.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="1.0" />
+                                       </padding>
+                                       <styleClass>
+                                          <String fx:value="transparent" />
+                                          <String fx:value="border-bottom" />
+                                       </styleClass>
+                                    </TextField>
+                                    <Pane prefHeight="100.0" prefWidth="65.0" />
+                                    <TextField fx:id="newBudget" prefHeight="55.0" prefWidth="200.0" promptText="Budget" style="-fx-prompt-text-fill: #676767; -fx-text-fill: #676767;" stylesheets="@../styles/style.css">
+                                       <font>
+                                          <Font name="Bell MT" size="30.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="1.0" />
+                                       </padding>
+                                       <styleClass>
+                                          <String fx:value="transparent" />
+                                          <String fx:value="border-bottom" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="78.0" prefWidth="640.0">
+                                 <children>
+                                    <TextField fx:id="newDayIn" prefHeight="55.0" prefWidth="200.0" promptText="2023-5-15" style="-fx-prompt-text-fill: #676767; -fx-text-fill: #676767;" stylesheets="@../styles/style.css">
+                                       <font>
+                                          <Font name="Bell MT" size="30.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="1.0" />
+                                       </padding>
+                                       <styleClass>
+                                          <String fx:value="transparent" />
+                                          <String fx:value="border-bottom" />
+                                       </styleClass>
+                                    </TextField>
+                                    <Pane prefHeight="100.0" prefWidth="65.0" />
+                                    <TextField fx:id="newDayOut" prefHeight="55.0" prefWidth="200.0" promptText="2023-5-16" style="-fx-prompt-text-fill: #676767; -fx-text-fill: #676767;" stylesheets="@../styles/style.css">
+                                       <font>
+                                          <Font name="Bell MT" size="30.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="1.0" />
+                                       </padding>
+                                       <styleClass>
+                                          <String fx:value="transparent" />
+                                          <String fx:value="border-bottom" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <Button mnemonicParsing="false" onAction="#addNewCity" prefHeight="39.0" prefWidth="161.0" style="-fx-background-color: #676767;" styleClass="radius" stylesheets="@../styles/style.css" text="Add" textFill="WHITE">
+                                 <font>
+                                    <Font name="Bell MT" size="20.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <HBox alignment="CENTER_RIGHT" prefHeight="71.0" prefWidth="640.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#saveNewTrip" prefHeight="39.0" prefWidth="161.0" style="-fx-background-color: white;" styleClass="radius" stylesheets="@../styles/style.css" text="Save">
+                                       <font>
+                                          <Font name="Bell MT Bold" size="20.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <HBox.margin>
+                                          <Insets right="70.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                        </VBox>
                      </children>
-                  </AnchorPane>
-              </content>
+                  </HBox>
+               </content>
             </Tab>
             <Tab text="Caravans">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Label layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="116.0" text="4" textFill="WHITE">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
             </Tab>
             <Tab text="Profile">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Label prefHeight="50.0" prefWidth="116.0" text="5" textFill="WHITE">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
             </Tab>
         </tabs>

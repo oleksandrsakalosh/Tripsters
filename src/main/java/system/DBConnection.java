@@ -1,17 +1,6 @@
 package main.java.system;
 
-import main.java.gui.controller.AuthorizationController;
-import java.io.File;
-import java.io.FileInputStream;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.sql.*;
 
 public class DBConnection {
     private String url = "jdbc:postgresql://localhost:5432/tripsters";
@@ -22,7 +11,12 @@ public class DBConnection {
     public DBConnection() throws SQLException {
         this.connection = DriverManager.getConnection(url, user, password);
     }
+
     public Connection getConnection() {
         return connection;
+    }
+
+    public Statement getNewStatement() throws SQLException {
+        return connection.createStatement();
     }
 }

@@ -8,27 +8,31 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import main.java.system.TripstersApp;
 
+import javax.swing.text.html.ImageView;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 
 public class MainController {
-    protected TripstersApp sys;
-    protected Stage primaryStage;
-    protected Scene preScene;
+    TripstersApp sys;
+    Stage primaryStage;
 
-    MainController(TripstersApp sys, Stage primaryStage, Scene preScene) {
+
+    MainController(TripstersApp sys, Stage primaryStage) {
         this.sys = sys;
         this.primaryStage = primaryStage;
-        this.preScene = preScene;
     }
 
-    public void switchScene(String fileName, Scene preScene, ActionEvent event) {
+    public FXMLLoader switchScene(String fileName) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fileName));
         switch (fileName){
             case "../view/AppScene.fxml":
-                loader.setControllerFactory(controllerClass -> new AppController(this.sys, this.primaryStage, preScene));
+                loader.setControllerFactory(controllerClass -> new AppController(this.sys, this.primaryStage));
                 break;
             case "../view/AuthorizationScene.fxml":
                 loader.setControllerFactory(controllerClass -> new AuthorizationController(this.sys, this.primaryStage));
+                break;
+            case "../view/TripScene.fxml":
+                loader.setControllerFactory(controllerClass -> new TripController(this.sys, this.primaryStage));
                 break;
         }
 
@@ -41,11 +45,6 @@ public class MainController {
 
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
-    }
-
-    @FXML
-    void goBack(ActionEvent event)  {
-        primaryStage.setScene(preScene);
-        primaryStage.show();
+        return loader;
     }
 }
